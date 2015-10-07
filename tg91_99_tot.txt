@@ -1,0 +1,74 @@
+91_Bacillus subtilis 
+Bacillus halodurans !=NO
+Bacillus cereus !=NO
+Bacillus anthracis !=NO
+Archaeoglobus fulgidus 4037.0 
+Arabidopsis thaliana 2535.8  
+Aquifex aeolicus 3718.5 
+Anabaena variabilis 3054.0
+Agrobacterium tumefaciens 3186.0
+Aeromonas hydrophila 3186.0
+Acinetobacter baylyi 3186.0
+
+92_Bacillus halodurans 
+Bacillus cereus !=NO
+Bacillus anthracis !=NO
+Archaeoglobus fulgidus 4037.0 
+Arabidopsis thaliana 2535.8  
+Aquifex aeolicus 3718.5 
+Anabaena variabilis 3054.0
+Agrobacterium tumefaciens 3186.0
+Aeromonas hydrophila 3186.0
+Acinetobacter baylyi 3186.0
+
+93_Bacillus cereus 
+Bacillus anthracis !=NO
+Archaeoglobus fulgidus 4037.0 
+Arabidopsis thaliana 2535.8  
+Aquifex aeolicus 3718.5 
+Anabaena variabilis 3054.0
+Agrobacterium tumefaciens 3186.0
+Aeromonas hydrophila 3186.0
+Acinetobacter baylyi 3186.0
+
+94_Bacillus anthracis
+Archaeoglobus fulgidus 4037.0 
+Arabidopsis thaliana 2535.8  
+Aquifex aeolicus 3718.5 
+Anabaena variabilis 3054.0
+Agrobacterium tumefaciens 3186.0
+Aeromonas hydrophila 3186.0
+Acinetobacter baylyi 3186.0
+
+95_Archaeoglobus fulgidus
+Arabidopsis thaliana 3556.3 
+Aquifex aeolicus 4037.0
+Anabaena variabilis 4037.0
+Agrobacterium tumefaciens 4037.0
+Aeromonas hydrophila 4037.0
+Acinetobacter baylyi 4037.0 
+
+96_Arabidopsis thaliana 
+Aquifex aeolicus 2535.8
+Anabaena variabilis  2535.8
+Agrobacterium tumefaciens  2535.8
+Aeromonas hydrophila  2535.8
+Acinetobacter baylyi 2535.8 
+
+97_Aquifex aeolicus 
+Anabaena variabilis  3718.5 
+Agrobacterium tumefaciens  3718.5
+Aeromonas hydrophila  3718.5
+Acinetobacter baylyi 3718.5
+
+98_Anabaena variabilis  
+Agrobacterium tumefaciens 3186.0
+Aeromonas hydrophila  3186.0
+Acinetobacter baylyi  3186.0
+
+99_Agrobacterium tumefaciens 
+Aeromonas hydrophila  2434.0
+Acinetobacter baylyi  2434.0 
+
+100_Aeromonas hydrophila  
+Acinetobacter baylyi  !=NO
