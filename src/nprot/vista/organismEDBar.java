@@ -1,5 +1,4 @@
 package nprot.vista;
-
 import NProt.accesoDatos.ManejoBD;
 import java.awt.Color;
 import java.util.Collections;
@@ -83,9 +82,6 @@ public class organismEDBar extends JFrame {
         
             createSingleWindow();
         } 
-        // create the chart...
-         
-
     }
 
     public organismEDBar(
@@ -97,7 +93,6 @@ public class organismEDBar extends JFrame {
         titles = title;
         this.sbBarType = sbBarType;
         this.top = top;
-        //JOptionPane.showMessageDialog(null,sbBarType);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         
         if(sbBarType.equalsIgnoreCase("ED"))
@@ -117,8 +112,7 @@ public class organismEDBar extends JFrame {
         {
             sbAxiName = "Evolutionary distance vs cysteine %";
             dataset1 =  datasetForBO(title);
-            int number=0;
-            
+            int number = 0;
             multipleWindow();
         }
        
@@ -144,6 +138,13 @@ public class organismEDBar extends JFrame {
         int acum = 1 ;
         for(int i  = 0 ; i<tmpForEvolutionary.size() ; i++)
         {
+            /*
+            xyseries.addValue(
+                    Float.parseFloat(organismResult.get(i)[2]) , 
+                    series1, 
+                    organismName
+                );
+            */
             xyseries.add(acum , tmpForEvolutionary.get(i));
             acum++;
         }
@@ -164,7 +165,8 @@ public class organismEDBar extends JFrame {
         
     }
 
-    private ChartPanel createChartPanel2(){
+    private ChartPanel createChartPanel2()
+    {
     final JFreeChart chart = ChartFactory.createBarChart(
             titles,        // chart title
             "ED vs cysteines",               // domain axis label
@@ -208,7 +210,14 @@ public class organismEDBar extends JFrame {
         NumberAxis numberaxis1 = new NumberAxis("Y");
         numberaxis1.setAutoRangeIncludesZero(false);
         XYSplineRenderer xysplinerenderer = new XYSplineRenderer();
-        XYPlot xyplot = new XYPlot(data1, numberaxis, numberaxis1, xysplinerenderer);
+        
+        XYPlot xyplot = new XYPlot(
+            data1, 
+            numberaxis, 
+            numberaxis1, 
+            xysplinerenderer
+        );
+        
         xyplot.setBackgroundPaint(Color.lightGray);
         xyplot.setDomainGridlinePaint(Color.white);
         xyplot.setRangeGridlinePaint(Color.white);
@@ -225,8 +234,6 @@ public class organismEDBar extends JFrame {
     */
     public void createSingleWindow(){
          // create the chart...
-        //System.out.println("hola");
-        //System.out.println(dataset1);
         final JFreeChart chart = ChartFactory.createBarChart(
             titles,        // chart title
             actualBar,               // domain axis label
@@ -423,16 +430,13 @@ public class organismEDBar extends JFrame {
             }
         }
         
-        
         for(int i = 0 ;  i < tmpForCysteines.size() ; i++)
         {
          //   System.out.println(" index "+i +" value "+tmpForCysteines.get(i));
         }
-        
         return dataset;
-        
-         
     }
+    
     /*
     * Returns the cisteine difference * 100000
     */
@@ -443,13 +447,12 @@ public class organismEDBar extends JFrame {
         Float result = (float) 2000;
         for(int i=0 ;i < liResCist.size();i++)
         {
-            //System.out.println(liResCist.get(i)[0]+"vs "+ sbOrgName);
             if (liResCist.get(i)[0].equalsIgnoreCase(sbOrgName))
             {
                 return Float.parseFloat(liResCist.get(i)[1])* 100000;
             }
         }
-        return result;
+        return result;  
     }
 }
 
