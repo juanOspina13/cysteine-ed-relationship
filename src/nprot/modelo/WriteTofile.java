@@ -26,12 +26,12 @@ public class WriteTofile {
             outFile = new FileWriter("nplets_count/"+
                     organismName.subSequence(0, 12)+
                     windowSize +
-                    "_results.txt"
+                    "_results.csv"
             );
             PrintWriter out = new PrintWriter(outFile);
             
             out.println( 
-                    "OS="+
+                    "Organism="+
                     organismName+
                     " PROTEIN NUMBER="+
                     proteinNumber+
@@ -40,14 +40,17 @@ public class WriteTofile {
                     " TOTAL COMBINATIONS="+
                     totalCombi
             );
+            out.println( 
+                    "Organism, Total , percentage"
+            );
             if( windowSize == 1 ||  windowSize == 2 ||  windowSize == 3 )
             {
                 for(String combination:possibleCombinations){
                     
                     out.println(
                             combination+
-                            "->"+
-                            results.get(combination)+ " "+
+                            ","+
+                            results.get(combination)+ ","+
                             ((Integer)results.get(combination)/(float)totalCombi)*100
                     );
                 }

@@ -49,7 +49,7 @@ public class Load_files extends JInternalFrame {
         setResizable(true);
         setTitle("Load organism");
 
-        panelEntrada.setBorder(javax.swing.BorderFactory.createTitledBorder("Input"));
+        panelEntrada.setBorder(javax.swing.BorderFactory.createTitledBorder("Organism file"));
 
         butExaminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +78,7 @@ public class Load_files extends JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelSalida1.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
+        panelSalida1.setBorder(javax.swing.BorderFactory.createTitledBorder("Results"));
 
         areaSalida1.setEditable(false);
         areaSalida1.setColumns(20);
@@ -101,7 +101,7 @@ public class Load_files extends JInternalFrame {
             .addGroup(panelSalida1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(scrollSalida1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,9 +147,9 @@ public class Load_files extends JInternalFrame {
              }else if(i==1){
                  name_column="Cysteine count : ";
             }else if(i==2){
-                 name_column="NPlets : ";
+                 name_column="";
             }else if(i==3){
-                 name_column="% : ";
+                 name_column="Cysteine fraction : ";
             }else if(i==4){
                      name_column="Organism name : ";
             }else if(i==5){

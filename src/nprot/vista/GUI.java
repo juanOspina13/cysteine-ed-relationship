@@ -26,29 +26,30 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         load_informationMI = new javax.swing.JMenuItem();
-        load_folderMI = new javax.swing.JMenuItem();
         npletsMI = new javax.swing.JMenuItem();
         evoDistMi = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         cysteine_resultsMI = new javax.swing.JMenuItem();
         cysteine_graph_resultsMI = new javax.swing.JMenuItem();
-        edGraphMI = new javax.swing.JMenuItem();
         cyBarGraph = new javax.swing.JMenuItem();
+        edGraphMI = new javax.swing.JMenuItem();
         cyVsEdBarGraph = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopP.setPreferredSize(new java.awt.Dimension(1400, 800));
+
         javax.swing.GroupLayout desktopPLayout = new javax.swing.GroupLayout(desktopP);
         desktopP.setLayout(desktopPLayout);
         desktopPLayout.setHorizontalGroup(
             desktopPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1238, Short.MAX_VALUE)
+            .addGap(0, 1400, Short.MAX_VALUE)
         );
         desktopPLayout.setVerticalGroup(
             desktopPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 583, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         jMenuBar1.setName("Cysteine Counting Algorythm V1.3"); // NOI18N
@@ -63,10 +64,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu1.add(load_informationMI);
 
-        load_folderMI.setText("Load Folder");
-        jMenu1.add(load_folderMI);
-
-        npletsMI.setText("Nplets txt");
+        npletsMI.setText("Aminoacid sequence generator");
         npletsMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 npletsMIActionPerformed(evt);
@@ -79,12 +77,17 @@ public class GUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Cysteine Information");
+        jMenu3.setText("Reports");
 
-        cysteine_resultsMI.setText("View Results");
+        cysteine_resultsMI.setText("Top organisms (cysteine)");
+        cysteine_resultsMI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cysteine_resultsMIActionPerformed(evt);
+            }
+        });
         jMenu3.add(cysteine_resultsMI);
 
-        cysteine_graph_resultsMI.setText("View Cisteine Histogram");
+        cysteine_graph_resultsMI.setText("Cisteine occurence histogram");
         cysteine_graph_resultsMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cysteine_graph_resultsMIActionPerformed(evt);
@@ -92,7 +95,10 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu3.add(cysteine_graph_resultsMI);
 
-        edGraphMI.setText("ED");
+        cyBarGraph.setText("Cysteine distances comparison");
+        jMenu3.add(cyBarGraph);
+
+        edGraphMI.setText("Evolutionary distances between a single organism and the others");
         edGraphMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edGraphMIActionPerformed(evt);
@@ -100,10 +106,12 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu3.add(edGraphMI);
 
-        cyBarGraph.setText("Cysteines");
-        jMenu3.add(cyBarGraph);
-
-        cyVsEdBarGraph.setText("Cysteine vs ED ");
+        cyVsEdBarGraph.setText("Cysteine and Evolutionary distances comparison");
+        cyVsEdBarGraph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cyVsEdBarGraphActionPerformed(evt);
+            }
+        });
         jMenu3.add(cyVsEdBarGraph);
 
         jMenuBar1.add(jMenu3);
@@ -155,6 +163,14 @@ public class GUI extends javax.swing.JFrame {
     private void edGraphMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edGraphMIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edGraphMIActionPerformed
+
+    private void cysteine_resultsMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cysteine_resultsMIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cysteine_resultsMIActionPerformed
+
+    private void cyVsEdBarGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cyVsEdBarGraphActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cyVsEdBarGraphActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +273,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem load_folderMI;
     private javax.swing.JMenuItem load_informationMI;
     private javax.swing.JMenuItem npletsMI;
     // End of variables declaration//GEN-END:variables

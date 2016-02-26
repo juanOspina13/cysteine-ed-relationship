@@ -112,10 +112,7 @@ public class ManejoBD {
                 "WHERE COMPLETE_NAME LIKE '"+
                 organismName + "'";
         
-        
-        
-        //CAST(evolutionary_distance AS float) System.out.println(query);
-        try
+       try
         {
             Connection conn= fachada.conectar();
             Statement stmt=conn.createStatement();
@@ -127,20 +124,6 @@ public class ManejoBD {
         }catch(Exception e)
         {
         }
-        
-        /*
-        String sbOtheVal =
-                "SELECT complete_name ,"+ 
-                " ABS( CAST(aminos_vs_cyst AS float)- "+ 
-                nuOrgaVal +
-                ") as result FROM organisms "+
-                "WHERE COMPLETE_NAME NOT LIKE '" +
-                organismName + 
-                "' ORDER BY ABS ( CAST(aminos_vs_cyst AS float)-" +
-                nuOrgaVal +
-                ") LIMIT "+
-                top ;
-        */
         String sbOtheVal =
                 "SELECT complete_name , "+
                 nuOrgaVal +

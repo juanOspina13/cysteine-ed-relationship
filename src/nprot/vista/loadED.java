@@ -49,9 +49,9 @@ public class loadED extends JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Load organism");
+        setTitle("Load evolutionary distances");
 
-        panelEntrada.setBorder(javax.swing.BorderFactory.createTitledBorder("Input"));
+        panelEntrada.setBorder(javax.swing.BorderFactory.createTitledBorder("CSV File"));
 
         butExaminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,21 +126,20 @@ public class loadED extends JInternalFrame {
                 .addComponent(panelSalida1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleName("Load evolutionary distances");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void butExaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExaminarActionPerformed
         entrada = escogerArchivos();
-        System.out.println(entrada);
+        System.out.println( entrada );
         String txt = "Exito";
         loEvoDist inLoEvoDi = new loEvoDist( entrada.getPath() );
         txt = inLoEvoDi.getSbResuVal();
-        
-        
-     
-       areaSalida1.setFont(new Font("sansserif", Font.BOLD, 20));
-       areaSalida1.setForeground(Color.BLACK);
-       areaSalida1.setText(txt);
+        areaSalida1.setFont(new Font("sansserif", Font.BOLD, 20));
+        areaSalida1.setForeground(Color.BLACK);
+        areaSalida1.setText(txt);
     }//GEN-LAST:event_butExaminarActionPerformed
 
    

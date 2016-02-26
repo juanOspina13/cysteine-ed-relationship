@@ -25,14 +25,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="load_informationMIActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="load_folderMI">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Load Folder"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="npletsMI">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nplets txt"/>
+                <Property name="text" type="java.lang.String" value="Aminoacid sequence generator"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="npletsMIActionPerformed"/>
@@ -47,39 +42,45 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cysteine Information"/>
+            <Property name="text" type="java.lang.String" value="Reports"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="cysteine_resultsMI">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Results"/>
+                <Property name="text" type="java.lang.String" value="Top organisms (cysteine)"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cysteine_resultsMIActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="cysteine_graph_resultsMI">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Cisteine Histogram"/>
+                <Property name="text" type="java.lang.String" value="Cisteine occurence histogram"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cysteine_graph_resultsMIActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="cyBarGraph">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cysteine distances comparison"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="edGraphMI">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ED"/>
+                <Property name="text" type="java.lang.String" value="Evolutionary distances between a single organism and the others"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edGraphMIActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="cyBarGraph">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cysteines"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="cyVsEdBarGraph">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cysteine vs ED "/>
+                <Property name="text" type="java.lang.String" value="Cysteine and Evolutionary distances comparison"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cyVsEdBarGraphActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -127,16 +128,21 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="desktopP">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1400, 800]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1238" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1400" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="583" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

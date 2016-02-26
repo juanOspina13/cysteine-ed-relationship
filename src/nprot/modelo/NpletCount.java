@@ -156,8 +156,13 @@ public class NpletCount extends AminosCount
          );
         
         //Aqui debe graficar
+//        String[] result =  {};
+//        int acum = 0;
         for(String nplet : possibleCombinations)
         {
+//            result[acum]= nplet+"_"+ hashmap_for_nplets.get(nplet);
+            
+//            acum++;
             hashmap_percentages.put(
                 nplet,
                ((Integer)hashmap_for_nplets.get(nplet)/(float)totalCombi)*100
@@ -185,12 +190,12 @@ public class NpletCount extends AminosCount
                     null,
                     "creo el archivo con el nombre"+
                     organism_name.subSequence(0, 12)+
-                    "_results.txt"
+                    windowSize +
+                    "_results.csv"
             );
         }
-        
-        String[] cualquierBobada={"1","2"};
-        return cualquierBobada;
+        String[]algo = {"a"};
+        return algo;
     }
     
     public void countNplets()

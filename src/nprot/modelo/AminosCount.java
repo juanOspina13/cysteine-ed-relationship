@@ -1,4 +1,5 @@
 package nprot.modelo;
+
 import NProt.accesoDatos.ManejoBD;
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,17 +10,19 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import nprot.vista.organismEDBar;
+import org.jfree.ui.RefineryUtilities;
 
-public class AminosCount 
-{
+public class AminosCount {
 
     int top_proteins = 50000;
     int acum = 0;
     int protein_number = 0;
     //COMPLETE LIST OF AMINOS
     //create the aminoacids
-    
+
     Aminoacid Alanine = new Aminoacid("Alanina", "A", 0);
     Aminoacid Arginine = new Aminoacid("Arginina", "R", 0);
     Aminoacid Asparaginine = new Aminoacid("Asparagina", "N", 0);
@@ -40,16 +43,14 @@ public class AminosCount
     Aminoacid Triptophane = new Aminoacid("Triptófano", "W", 0);
     Aminoacid Tirosine = new Aminoacid("Tirosina", "Y", 0);
     Aminoacid Valine = new Aminoacid("Valina", "V", 0);
-    
+
     //add the aminoacids to a list
-    
     LinkedList<Aminoacid> lista = new LinkedList();
-    
+
     /*
-    * Inicializo la lista 
-    */
-    public AminosCount() 
-    {
+     * Inicializo la lista 
+     */
+    public AminosCount() {
         lista.add(Alanine);
         lista.add(Arginine);
         lista.add(Asparaginine);
@@ -72,19 +73,18 @@ public class AminosCount
         lista.add(Valine);
         boolean triplets = true;
     }
-    
+
     /*
-    * Lee el archivo
-    */
-    
+     * Lee el archivo
+     */
     public String[] getInformation(
             File f
-    ) throws FileNotFoundException, IOException 
-    {
+    ) throws FileNotFoundException, IOException {
         //GENERATE ALL THE POSIBLE TRIPLETS AND ADD THEM TO A HASH TABLE, WORKS FOR TRIPLETS ONLY
         HashMap hashmap_for_nplets = new HashMap();
-        HashMap hashmap_for_aminos = new HashMap();
         String organism_name = "";
+
+        HashMap hashmap_for_aminos = new HashMap();
 
         for (int i = 0; i < lista.size(); i++) {
             hashmap_for_aminos.put(lista.get(i).nomenclature, 0);
@@ -97,35 +97,30 @@ public class AminosCount
             while (line != null && protein_number < top_proteins) {
                 line = br.readLine();
                 try {
-                    if (line.substring(0, 2).equals(">s")) 
-                    {
-                        if(protein_number==1)
-                        {
+                    if (line.substring(0, 2).equals(">s")) {
+                        if (protein_number == 1) {
                             organism_name = line.split("OS=")[1].split("GN=")[0];
                         }
                         protein_number++;
                     } else {
-                        for (int i = 0; i < line.length(); i++) 
-                        {
-                            
-                            int val = (int) hashmap_for_aminos.get
-                            (
-                                    "" + 
-                                    line.charAt(i) + 
+                        for (int i = 0; i < line.length(); i++) {
+
+                            int val = (int) hashmap_for_aminos.get(
                                     ""
+                                    + line.charAt(i)
+                                    + ""
                             );
-                            
+
                             val++;
-                            
+
                             hashmap_for_aminos.put(
-                                    "" + line.charAt(i) + "", 
+                                    "" + line.charAt(i) + "",
                                     val++
                             );
-                        
+
                         }
                     }
-                } catch (Exception e) 
-                {
+                } catch (Exception e) {
                 }
                 acum++;
             }
@@ -134,14 +129,12 @@ public class AminosCount
         }
         System.out.println("Aminos : " + hashmap_for_aminos);
         int total_acum = 0;
-        for (int i = 0; i < lista.size(); i++) 
-        {
-            try 
-            {
+        for (int i = 0; i < lista.size(); i++) {
+            try {
                 total_acum += (int) hashmap_for_aminos.get(
                         lista.get(i).getNomenclature()
-                    );
-                
+                );
+
             } catch (Exception e) {
             }
         }
@@ -151,16 +144,36 @@ public class AminosCount
         double double_total_acum = (double) total_acum;
         System.out.println(double_cisteine_total / double_total_acum);
         System.out.println(organism_name);
-        String tmp[]=organism_name.split(" ");
+        String tmp[] = organism_name.split(" ");
         String[] output = {
-            "" + total_acum, "" + double_cisteine_total, 
-            "", 
-            ("" + double_cisteine_total / double_total_acum).substring(0,5),
-            tmp[0]+" "+tmp[1], 
+            "" + total_acum, "" + double_cisteine_total,
+            "",
+            ("" + double_cisteine_total / double_total_acum).substring(0, 5),
+            tmp[0] + " " + tmp[1],
             "" + f, "ninguno"
         };
         ManejoBD manejador = new ManejoBD();
         manejador.saveSequence(output);
+        System.out.println("salida");
+        System.out.println(output);
+        LinkedList<String> temporal = new LinkedList<String>();
+        for (int i = 0 ; i<lista.size();i++){
+            temporal.add(lista.get(i).getNomenclature());
+        }
+        organismEDBar nuevo = new organismEDBar(
+                "aminocount",
+                "resultados aminoacidos",
+                "100",
+                hashmap_for_aminos,
+                temporal
+        );
+        nuevo.pack();
+        RefineryUtilities.centerFrameOnScreen(nuevo);
+        nuevo.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);
+        nuevo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         return output;
     }
 

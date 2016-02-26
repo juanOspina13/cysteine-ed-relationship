@@ -42,7 +42,7 @@ private File entrada;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Generate Nplet Txt");
+        setTitle("Aminoacid sequence counter");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Parameters"));
 

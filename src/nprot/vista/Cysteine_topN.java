@@ -28,7 +28,7 @@ public class Cysteine_topN extends JInternalFrame {
      * Creates new form Cysteine_topN
      */
     public Cysteine_topN() {
-        organisms=manejador.getTopOrganisms(10);
+        organisms=manejador.getTopOrganisms(100);
         initComponents();
         this.organismCB.setModel(new ComboModel());
         this.organismCB.addItemListener(new ComboEvents());       
@@ -195,7 +195,8 @@ public class Cysteine_topN extends JInternalFrame {
         @Override
         public void itemStateChanged(ItemEvent e) {
             int value=Integer.parseInt((String)topNCB.getSelectedItem());
-            ModifiedTableModel newModel=new ModifiedTableModel(value);
+            ModifiedTableModel newModel =new ModifiedTableModel(value);
+            System.out.println(value);
             tableOrganisms.setModel(newModel);
             newModel.fireTableDataChanged();
            
@@ -215,7 +216,7 @@ public class Cysteine_topN extends JInternalFrame {
             }else if(indice==2){
                 return "Cysteine count";
             }else{
-                return "%";
+                return "Fraction";
             }
         }
 
@@ -233,8 +234,11 @@ public class Cysteine_topN extends JInternalFrame {
 
     public class ModifiedTableModel extends AbstractTableModel{
     int top;
-    LinkedList<String[]>top_organisms=new LinkedList();
+    LinkedList<String[]> top_organisms = new LinkedList();
         public ModifiedTableModel(int top) {
+            if(top>organisms.size()){
+            top=organisms.size();
+            }
             this.top=top;
             for(int i=0;i<top;i++){
                 top_organisms.add(organisms.get(i));

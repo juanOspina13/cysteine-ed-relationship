@@ -42,15 +42,17 @@ public class loEvoDist {
             int acum = 1 ;
             while ((sCurrentLine = br.readLine()) != null) 
             {
-                String tmp[] = sCurrentLine.split(",");
+                if(acum > 1)
+                {
+                    String tmp[] = sCurrentLine.split(",");
                 try 
                 {
                     String query = "";
                     Float valor = Float.parseFloat(tmp[2]);
-                    if(tmp[2].length() > 1 )
+                    if(tmp[2].length() > 0 )
                     {
                         query = 
-                        "INSERT INTO evolutionary_distance"
+                        "INSERT INTO evolutionary_distance1"
                             + "("
                             + "organism_1,"
                             + "organism_2,"
@@ -58,27 +60,37 @@ public class loEvoDist {
                             + "comments"
                             + ") VALUES"
                             + "(TRIM('" +
-                            tmp[0].toUpperCase() +"'),'" +
+                            tmp[0].toUpperCase() +"'),TRIM('" +
                             tmp[1].toUpperCase() +
-                            "','"+
+                            "'),'"+
                             valor +"','"
                             +tmp[3]
                             + "');";
-                        manejobd.runQuery(query);
-                        sbResuVal += "Linea " + acum + ": Exito " + tmp[0] + "-" + tmp[1]+"\n";
+                            System.out.println(query);
+                            if( manejobd.runQuery(query) == 1 ){
+                                sbResuVal += "Linea " + acum + ": Exito " + tmp[0] + "-" + tmp[1]+"\n";
+                            }else{
+                                sbResuVal += "Linea " + acum + ": Fallo" + tmp[0] + "-" + tmp[1]+"\n";
+                            
+                            };
+                            
+                        }
+
                     }
-                        
+                    catch(Exception e)
+                    {
+//                        sbResuVal += "Linea " + acum + ": Fallo " + tmp[0] + "-" + tmp[1]+"\n";
+//                        System.out.println("Fallo " + tmp[0] + "-" + tmp[1]+"\n");
+                        e.printStackTrace();
+                    }
                 }
-                catch(Exception e)
-                {
-                    sbResuVal += "Linea " + acum + ": Fallo " + tmp[0] + "-" + tmp[1]+"\n";
-                    System.out.println("fallo");
-                }
+                
                 acum++;
             }
             
  	} catch (IOException e) 
         {
+            System.out.println("falli por fuera");
         }     
     }
     /*
